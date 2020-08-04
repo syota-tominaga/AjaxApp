@@ -1,15 +1,14 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.order(id: "DESC")
   end
 
   def new
   end
-
-<<<<<<< Updated upstream
+  
   def create
     Post.create(content: params[:content])
-=======
+    
   def checked
     post = Post.find(params[:id])
     if post.checked then
@@ -20,8 +19,5 @@ class PostsController < ApplicationController
 
     item = Post.find(params[:id])
     render json:{ post: item }
->>>>>>> Stashed changes
   end
 end
-
-
